@@ -1,0 +1,24 @@
+{
+    "name": "Île-de-France Mobilités",
+    "short_name": "IDFM",
+    "description": "Île-de-France Mobilités is the public transport authority for the Île-de-France region, which includes Paris and its suburbs.",
+    "color": "#5ab4e2",
+    "types": {
+        "metro": {
+            "transportmode": "metro",
+            "transportsubmode": null
+        },
+        "rer": {
+            "transportmode": "rail",
+            "transportsubmode": "local"
+        },
+        "train": {
+            "transportmode": "rail",
+            "transportsubmode": "suburbanRailway"
+        },
+        "tram": {
+            "transportmode": "tram",
+            "transportsubmode": null
+        }
+    }
+}

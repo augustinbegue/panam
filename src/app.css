@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.floating {
+	@apply flex flex-row items-center justify-between;
+	@apply fixed top-0 left-0;
+	@apply p-2 m-2;
+	@apply bg-white rounded-lg shadow-xl;
+}
+
+.floating button,
+.floating a {
+	@apply p-2 text-2xl;
+}
+
+.floating img {
+	@apply h-8;
+}
+
+.panam {
+	@apply flex flex-col h-screen;
+	@apply bg-black;
+}
+
+.panam .direction {
+	@apply flex flex-row items-center justify-start;
+	@apply bg-white;
+	@apply p-2 max-h-[18%];
+}
+
+.panam .direction img {
+	@apply max-h-full mr-2 lg:mr-4 xl:mr-6 2xl:mr-8;
+}
+
+.panam .direction i {
+	@apply text-6xl lg:text-8xl xl:text-[8rem] 2xl:text-[12rem];
+}
+
+.panam .direction h1 {
+	@apply text-5xl lg:text-6xl xl:text-8xl 2xl:text-[8rem] font-parisine font-bold text-black;
+	@apply ml-2;
+}
+
+.panam .direction h2 {
+	@apply text-3xl lg:text-4xl xl:text-6xl 2xl:text-[4rem] font-parisine font-bold text-black;
+	@apply inline-flex;
+	@apply absolute right-2 lg:right-4 xl:right-6 2xl:right-8;
+}
+
+.panam .information {
+	@apply grow;
+	@apply flex flex-col justify-start;
+}
+
+.panam .information .legends {
+	@apply flex flex-row items-center justify-between;
+	@apply py-2 px-4;
+}
+
+.panam .information .legends p {
+	@apply text-white font-parisine;
+	@apply text-xl lg:text-2xl xl:text-3xl 2xl:text-[4xl];
+}
+
+.panam .information .legends p.time {
+	@apply text-ratpYellow inline-flex;
+	@apply text-2xl lg:text-3xl xl:text-4xl 2xl:text-[6xl];
+}
+
+.panam .information .times {
+	@apply grow;
+	@apply flex flex-row justify-evenly items-center;
+	@apply text-ratpYellow font-parisine font-bold text-[10rem] lg:text-[15rem] xl:text-[25rem] 2xl:text-[30rem];
+}
+
+.panam .information .times span {
+	@apply h-[10rem] lg:h-[15rem];
+	@apply border-white border-l-8;
+}
+
+.panam .information form {
+	@apply flex flex-col items-center justify-between gap-4;
+	@apply p-2;
+}
+
+.panam .information form label {
+	@apply flex flex-col items-center justify-between gap-2;
+}
+
+.panam .information form label span {
+	@apply text-white font-parisine text-2xl inline-flex gap-2;
+}
+
+.panam .information form label span img {
+	@apply h-8;
+}
+
+.panam .information form label select {
+	@apply text-black font-parisine text-xl;
+	@apply p-2 rounded-lg;
+}
+
+.panam .information form > button {
+	@apply bg-white text-black font-parisine text-xl;
+	@apply p-2 rounded-lg;
+}
+
+.panam .multimode {
+	@apply grow;
+	@apply flex flex-col items-center justify-center gap-4;
+	@apply p-4 w-full;
+}
+
+.panam .multimode > div {
+	@apply flex flex-row items-center justify-between gap-2;
+	@apply bg-white;
+	@apply w-full p-1 lg:p-2 xl:p-4 rounded-xl;
+	@apply text-2xl lg:text-3xl xl:text-6xl 2xl:text-8xl;
+}
+
+.panam .multimode > div > p:nth-child(1) {
+	@apply text-black font-parisine font-bold ml-1;
+}
+
+.panam .multimode > div > p:nth-child(2) {
+	@apply bg-black text-ratpYellow font-parisine font-bold;
+	@apply py-1 px-10 lg:px-20;
+	@apply rounded-xl;
+}
+
+.panam .line {
+	@apply h-[6%];
+}

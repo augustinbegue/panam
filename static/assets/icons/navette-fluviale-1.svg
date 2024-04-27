@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="250px" height="250px" viewBox="0 0 283.46 283.46">
+	<title>Paris transit icons - Navette Fluviale 1</title>
+	<path fill="#FFF" d="M0,28.35h283.46v226.76H0z"/>
+	<rect fill="#CEADD2" width="283.46" height="42.52" rx="14.17"/>
+	<rect fill="#CEADD2" width="283.46" height="42.52" rx="14.17" y="240.94"/>
+	<path fill="#25303B" d="M82.2,107.33v24.59h42.69v19.5H82.2v45.31H58.07V87.54h68.36v19.8H82.2zM188.93,196.73v-85.84c-6.65,5.26-17.17,10.36-24.44,13.61l-7.43-16.7c11.45-4.79,25.21-12.06,36.04-20.27h19.03v109.2H188.93z"/>
+</svg>

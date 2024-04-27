@@ -1,0 +1,123 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TransportMode {
+  bus
+  tram
+  metro
+  rail
+  funicular
+}
+
+enum TransportSubmode {
+  local
+  suburbanRailway
+  regionalRail
+  railShuttle
+  localBus
+  regionalBus
+  expressBus
+  highFrequencyBus
+  demandAndResponseBus
+  nightBus
+  airportLinkBus
+}
+
+model Line {
+  id                    String            @id
+  name                  String
+  shortName             String
+  transportMode         TransportMode
+  transportSubmode      TransportSubmode?
+  operatorRef           String
+  operatorName          String
+  additionalOperators   String?
+  networkName           String?
+  colourWebHexa         String
+  colourTextHexa        String
+  accessibility         Boolean
+  groupOfLinesId        String?
+  groupOfLinesShortname String?
+  status                String?
+  privateCode           String?
+  stops                 Stop[]            @relation("LineStops")
+  arrivals              Arrival[]
+  disruptions           Disruption[]      @relation("lineDisruptions")
+}
+
+model Stop {
+  lines                 Line[]       @relation("LineStops")
+  id                    String       @id
+  name                  String
+  lon                   Float
+  lat                   Float
+  operatorName          String
+  nomCommune            String
+  codeInsee             String
+  arrivals              Arrival[]    @relation("arrivalStop")
+  destinationReferences Arrival[]    @relation("arrivalDestination")
+  disruptions           Disruption[] @relation("stopDisruptions")
+}
+
+enum ArrivalStatus {
+  EARLY
+  ON_TIME
+  ARRIVED
+  DELAYED
+  MISSED
+  CANCELLED
+  NO_REPORT
+}
+
+model Arrival {
+  id                      String         @id
+  updatedAt               DateTime       @updatedAt
+  lineId                  String
+  line                    Line?          @relation(fields: [lineId], references: [id])
+  stopId                  String
+  stop                    Stop?          @relation(fields: [stopId], references: [id], name: "arrivalStop", onDelete: Cascade)
+  destinationId           String
+  destination             Stop           @relation(fields: [destinationId], references: [id], name: "arrivalDestination", onDelete: Cascade)
+  destinationDisplay      String
+  expectedArrivalTime     DateTime?
+  expectedArrivalStatus   ArrivalStatus?
+  expectedDepartureTime   DateTime
+  expectedDepartureStatus ArrivalStatus?
+}
+
+enum DisruptionCause {
+  TRAVAUX
+  PERTURBATION
+  INFORMATION
+}
+
+enum DisruptionSeverity {
+  BLOQUANTE
+  PERTURBEE
+  INFORMATION
+}
+
+model Disruption {
+  id            String             @id
+  startDate     DateTime
+  endDate       DateTime
+  lastUpdate    DateTime
+  cause         DisruptionCause
+  severity      DisruptionSeverity
+  title         String
+  message       String
+  impactedStops Stop[]             @relation("stopDisruptions")
+  impactedLines Line[]             @relation("lineDisruptions")
+}
