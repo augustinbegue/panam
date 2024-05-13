@@ -10,10 +10,8 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "docker:build": "docker build -t panam-screensaver:$npm_package_version .",
-    "docker:run": "docker run -p 3000:3000 panam-screensaver",
-    "docker:tag": "docker tag panam-screensaver:$npm_package_version docker.hostag.fr/panam-screensaver:$npm_package_version",
-    "docker:push": "docker push docker.hostag.fr/panam-screensaver:$npm_package_version",
+    "docker:build": "docker compose build",
+    "docker:push": "docker compose push",
     "fetch": "bun run idfmFetch.ts"
   },
   "devDependencies": {

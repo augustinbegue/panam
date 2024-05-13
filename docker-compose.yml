@@ -1,0 +1,19 @@
+services:
+  front:
+    build:
+      context: .
+      dockerfile: dockerfile-front
+      tags:
+        - 'docker.hostag.fr/panam-front:${npm_package_version}'
+    env_file:
+      - .env
+    ports:
+      - '3000:3000'
+  fetch:
+    build:
+      context: .
+      dockerfile: dockerfile-fetch
+      tags:
+        - 'docker.hostag.fr/panam-fetch:${npm_package_version}'
+    env_file:
+      - .env
