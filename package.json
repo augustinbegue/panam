@@ -13,7 +13,8 @@
     "docker:build": "docker build -t panam-screensaver:$npm_package_version .",
     "docker:run": "docker run -p 3000:3000 panam-screensaver",
     "docker:tag": "docker tag panam-screensaver:$npm_package_version docker.hostag.fr/panam-screensaver:$npm_package_version",
-    "docker:push": "docker push docker.hostag.fr/panam-screensaver:$npm_package_version"
+    "docker:push": "docker push docker.hostag.fr/panam-screensaver:$npm_package_version",
+    "fetch": "bun run idfmFetch.ts"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",

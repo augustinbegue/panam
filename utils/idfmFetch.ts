@@ -269,11 +269,15 @@ async function updateInfoTrafic() {
 
 try {
     await updateTimetable();
-} catch (error) { }
+} catch (error) {
+    log.error(`Failed to update timetable`, error);
+}
 
 try {
     await updateInfoTrafic();
-} catch (error) { }
+} catch (error) {
+    log.error(`Failed to update disruptions`, error);
+}
 
 setInterval(async () => {
     try {
